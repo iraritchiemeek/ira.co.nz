@@ -17,10 +17,13 @@ function IndexPage() {
         allContentfulAlbum {
           edges {
             node {
+              slug
               title
+              subtitle
               coverPhoto {
                 gatsbyImageData(
-                  layout: FULL_WIDTH
+                  layout: FULL_WIDTH,
+                  aspectRatio: 1.53
                 )
               }
             }
@@ -30,15 +33,14 @@ function IndexPage() {
     `   
   )
 
-  console.log(data)
-
   const renderAlbum = album => {
     const image = getImage(album.coverPhoto)
     return (
-      <div>
-        <GatsbyImage image={image} alt="Album Cover" blurred />
-        <Col>{album.title}</Col>
-      </div>
+      <Link to={album.slug}>
+        <GatsbyImage image={image} alt="Album Cover" />
+        <div className="w-100 fw-bold fs-5">{album.title}</div>
+        <div className="w-100 fw-light fs-6">{album.subtitle}</div>
+      </Link>
     )
   }
 
@@ -46,16 +48,25 @@ function IndexPage() {
     return (
       data.allContentfulAlbum.edges.map(edge => {
         return (
-          renderAlbum(edge.node)
+          <Col key={edge.node.title}>
+            {renderAlbum(edge.node)}
+          </Col>
         )
       })
     )
   }
 
   return (
-    <Container>
-      <Row xs={1} sm={2} xl={4} className="g-4">
-        {renderAlbums()}
+    <Container fluid className="p-4">
+      <Row>
+        <Col xs={12} md={2}>
+          <h2 className="fw-light">Ira</h2>
+        </Col>
+        <Col xs={12} md={10}>
+          <Row xs={1} md={3} className="g-4">
+            {renderAlbums()}
+          </Row>
+        </Col>
       </Row>
     </Container>
   )
