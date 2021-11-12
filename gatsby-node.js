@@ -14,7 +14,7 @@ exports.createPages = ({graphql, actions}) => {
             subtitle
             photos {
               gatsbyImageData(
-                quality: 100,
+                quality: 90,
                 outputPixelDensities: [0.5, 1]
               )
             }
