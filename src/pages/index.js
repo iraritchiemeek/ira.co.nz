@@ -22,7 +22,6 @@ function IndexPage() {
               subtitle
               coverPhoto {
                 gatsbyImageData(
-                  layout: FULL_WIDTH,
                   aspectRatio: 1.53
                 )
               }
@@ -38,8 +37,8 @@ function IndexPage() {
     return (
       <Link to={album.slug}>
         <GatsbyImage image={image} alt="Album Cover" />
-        <div className="w-100 fw-bold fs-5">{album.title}</div>
-        <div className="w-100 fw-light fs-6">{album.subtitle}</div>
+        <div className="w-100 fw-bold fs-5 mt-2">{album.title}</div>
+        <div style={{lineHeight: '15px'}} className="w-100 fw-light fs-6">{album.subtitle}</div>
       </Link>
     )
   }

@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Row from 'react-bootstrap/Row'
@@ -20,7 +19,7 @@ function Album({pageContext}) {
 				const portrait = image.width < image.height
 				console.log(portrait)
 				return (
-					<Col xs={portrait ? 6 : 12}>
+					<Col xs={portrait ? 6 : 12} >
 						<GatsbyImage key={i} alt={`${album.title} photo`} image={image} />
 					</Col>
 				)
@@ -32,7 +31,7 @@ function Album({pageContext}) {
 		<Container fluid className="p-4">
 			<Row>
 			  <Col xs={12} md={2}>
-			    <h2 className="fw-light">{album.title}</h2>
+			    <h2 className="fw-light" style={{position: 'fixed'}}>{album.title}</h2>
 			  </Col>
 			  <Col xs={12} md={10}>
 				  <Row className="g-4">
