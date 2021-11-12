@@ -31,7 +31,7 @@ function Album({pageContext}) {
 		<Container fluid className="p-4">
 			<Row>
 			  <Col xs={12} md={2}>
-			    <h2 className="fw-light" style={{position: 'fixed'}}>{album.title}</h2>
+			    <h2 className="fw-light">{album.title}</h2>
 			  </Col>
 			  <Col xs={12} md={10}>
 				  <Row className="g-4">
