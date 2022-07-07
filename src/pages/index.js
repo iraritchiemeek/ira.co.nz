@@ -20,6 +20,11 @@ function IndexPage() {
               slug
               title
               subtitle
+              photos{
+                gatsbyImageData(
+                  quality: 1,
+                )
+              }
               coverPhoto {
                 gatsbyImageData(
                   aspectRatio: 1.53
@@ -34,11 +39,14 @@ function IndexPage() {
 
   const renderAlbum = album => {
     const image = getImage(album.coverPhoto)
+    console.log(album)
     return (
       <Link to={album.slug}>
         <GatsbyImage image={image} alt="Album Cover" />
-        <div className="w-100 fw-bold fs-5 mt-2">{album.title}</div>
-        <div style={{lineHeight: '15px'}} className="w-100 fw-light fs-6">{album.subtitle}</div>
+        <div className="w-100 mt-1 fw-light d-flex justify-content-between pt-2">
+          <span>{album.title}</span>
+          <span>images: {album.photos.length}</span>
+        </div>
       </Link>
     )
   }
@@ -57,11 +65,12 @@ function IndexPage() {
 
   return (
     <Container fluid className="p-4">
+      <header className="pb-4">
+          <h2 className="fw-light pb-4">Ira Ritchie Meek</h2>
+
+      </header>
       <Row>
-        <Col xs={12} md={2}>
-          <h2 className="fw-light">Ira</h2>
-        </Col>
-        <Col xs={12} md={10}>
+        <Col xs={12}>
           <Row xs={1} md={3} className="g-4">
             {renderAlbums()}
           </Row>
