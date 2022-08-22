@@ -55,7 +55,7 @@ function Album({pageContext}) {
 		 		<h2 className="fw-light">{album.title}</h2>
 		 		<div style={{cursor: 'pointer'}}>
 			 		<span onClick={e => changeCurrentPhoto('back')} className="fw-bold me-2">previous</span>
-			 		<span onClick={e => changeCurrentPhoto('back')} className="fw-bold">next</span>
+			 		<span onClick={e => changeCurrentPhoto('forward')} className="fw-bold">next</span>
 		 		</div>
 		 	</header>
 		 	<div {...swipeHandlers} className="album-image-container" >
