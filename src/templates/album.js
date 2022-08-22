@@ -24,10 +24,10 @@ function Album({pageContext}) {
 	});
 
 	const changeCurrentPhoto = direction => {
-		if(direction == 'forward') {
+		if(direction == 'back') {
 			let index = currentImageIndex == 0 ? album.photos.length - 1 : currentImageIndex - 1
 			setCurrentImageIndex(index)
-		} else {
+		} else if(direction == 'forward') {
 			let index = currentImageIndex == album.photos.length - 1 ? 0 : currentImageIndex + 1
 			setCurrentImageIndex(index)
 		}
