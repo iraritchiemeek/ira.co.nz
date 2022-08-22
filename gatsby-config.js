@@ -22,7 +22,7 @@ module.exports = {
       options: {
         defaults: {
           formats: [`auto`, `webp`],
-          placeholder: `transparent`,
+          placeholder: `blurred`,
           quality: 100,
           breakpoints: [750, 1080, 1366, 1920],
         },
