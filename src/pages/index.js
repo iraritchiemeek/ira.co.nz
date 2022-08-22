@@ -64,10 +64,9 @@ function IndexPage() {
   }
 
   return (
-    <Container fluid className="p-4">
-      <header className="pb-4">
-          <h2 className="fw-light pb-4">Ira Ritchie Meek</h2>
-
+    <Container fluid className="px-4 pb-4">
+      <header>
+          <h2 className="fw-bold">Ira.co.nz</h2>
       </header>
       <Row>
         <Col xs={12}>
